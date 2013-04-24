@@ -1,0 +1,36 @@
+#include "std_lib_facilities_3.h"
+#include "Chrono.h"
+using namespace Chrono;
+
+
+
+int getWeekDay(Date date)
+{
+  int d=date.day();
+	int m=date.month();
+	int y=date.year();
+	
+	switch(m)
+	{
+		case 1:case 2:
+			m+=12;
+			y-=1;
+			break;
+	}
+	
+	int k=y%100;
+	int j=y/100;
+	
+	int h=(d+((13*(m+1))/5)+k+(k/4)+(j/4)-2*j)%7;
+	
+	switch(h)
+	{
+		case 0:
+			h=7;
+		default:
+			h-=1;
+			break;
+	}		
+	
+	return h;
+}
