@@ -1,0 +1,150 @@
+#include "std_lib_facilities_3.h"
+#include "Simple_window.h"
+#include "Graph.h"
+#include "Window.h"
+#include <sstream>
+//#include "Chrono.h"
+//using namespace Chrono;
+
+
+int main()
+
+//click the top left corner to exit
+
+try {
+  struct Simple_window win1(Point(100,200),900,1000,"Calendar 360");
+  Vector_ref<Rectangle> rect;
+  Vector_ref<Line> grid;
+  String Month, Year;
+  int day_in_month, boxdate_month_starts;
+  Month = "January";
+  Year = "2012";
+//grid~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//background
+		rect.push_back(new Rectangle(Point(0,0),700,20));
+        rect[0].set_fill_color(FL_BLUE);
+        win1.attach(rect[0]);
+//lines		
+	for(int i=0; i<8; i++)
+	{
+		grid.push_back(new Line(Point(i*100,75),Point(i*100,1000)));
+	}
+	for(int j=0; j<8; j++)
+	{
+		grid.push_back(new Line(Point(0,j*150+100),Point(700,j*150+100)));
+	}
+	grid.push_back(new Line(Point(0,75),Point(700,75)));
+	for(int a=0; a<17; ++a)
+	{
+		win1.attach(grid[a]);
+	}
+	
+//days of the week
+	Vector_ref<Text> vweekday;
+	vweekday.push_back(new Text(Point(15,95),"Sunday"));
+	vweekday.push_back(new Text(Point(114,95),"Monday"));
+	vweekday.push_back(new Text(Point(214,95),"Tuesday"));
+	vweekday.push_back(new Text(Point(307,95),"Wednesday"));
+	vweekday.push_back(new Text(Point(411,95),"Thursday"));
+	vweekday.push_back(new Text(Point(517,95),"Friday"));
+	vweekday.push_back(new Text(Point(613,95),"Saturday"));
+	
+	for(int wd=0; wd<7; wd++)
+	{
+		vweekday[wd].set_font_size(15);
+		win1.attach(vweekday[wd]);
+	}
+//month title    
+    Text t(Point(30,55),Month+Year);
+    t.set_font_size(30);
+    win1.attach(t);
+//boxes
+    Vector_ref<Text> boxdate;
+    day_in_month =1;
+    
+    for(int rownumber=0; rownumber<6; rownumber++)
+    {   
+        
+        for(int collumnumber=0; collumnumber<7; collumnumber++)
+        {
+		stringstream ss;
+		ss << day_in_month;
+		string Day = ss.str();
+        boxdate.push_back(new Text(Point(15+100*collumnumber,130+150*rownumber),Day));
+        day_in_month++;
+        }
+    }
+    for(int b=0; b<31; b++)
+	{
+        boxdate[b].set_font_size(30);
+		win1.attach(boxdate[b]);
+	}
+//--input boxes and buttons
+//callback for buttons
+/*
+    static void cb_next(Address, Address); // callback for next_button
+    void next(); 
+    static void cb_quit(Address, Address); // callback for quit_button
+    void quit(); 
+*/
+//create
+	In_box* inp = new In_box(Point(750, 150), 100, 30, "Month"); //child 2 : 3rd widget	
+    Out_box* test = new Out_box (Point(750,190), 100, 30, "output test");
+//    Button* appt_button = new Button(Point(750,175), 70, 20, "Create",cb_next);        // add to appt file
+    
+//    Button quit_button;
+
+
+//    quit_button(Point(x_max()-70,0), 70, 20, "Quit", cb_quit);
+    
+//attach    
+	win1.attach(*inp);
+    win1.attach(*test);
+//    win1.attach(quit_button);
+//button functions
+
+/*
+//Day of the week the month starts on
+int getWeekDay(Date date)
+{
+  int d=date.day();
+	int m=date.month();
+	int y=date.year();
+	
+	switch(m)
+	{
+		case 1:case 2:
+			m+=12;
+			y-=1;
+			break;
+	}
+	
+	int k=y%100;
+	int j=y/100;
+	
+	int h=(d+((13*(m+1))/5)+k+(k/4)+(j/4)-2*j)%7;
+	
+	switch(h)
+	{
+		case 0:
+			h=7;
+		default:
+			h-=1;
+			break;
+	}		
+	
+	return h;
+} 
+*/
+// waiting for button press 
+  win1.wait_for_button();
+  return 0;
+}
+catch(exception& e) {
+	cerr << "exception: " << e.what() << '\n';
+	return 1;
+}
+catch (...) {
+	cerr << "Some exception\n";
+	return 2;
+}

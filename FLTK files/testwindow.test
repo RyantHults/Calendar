@@ -1,0 +1,33 @@
+#include "std_lib_facilities_3.h"
+#include "Simple_window.h"
+#include "Graph.h"
+#include "Window.h"
+#include <sstream>
+
+int main()
+{
+
+Main_window::Main_window(Point(x,y),int w,int h,const string& title)
+	:Window(xy,w,h,title),
+	next_button(x_max()-150,0
+	quit_button(
+
+
+
+
+
+struct Main_window : Window {
+	Main_window(Point(100,200),700,1000,"Calendar 360");
+	Open_polyline lines;
+private:
+	Button next_button;
+	Button quit_button;
+	In_box next_x;
+	In_box next_y;
+	Out_box xy_out;
+	
+	static void cb_next(Address, Address);
+	void next();
+	static void cb_quit(Address, Address);
+	void quit();
+};

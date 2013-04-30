@@ -1,0 +1,91 @@
+// Print Calendar.cpp : Defines the entry point for the console application.
+//
+ 
+#include \"stdafx.h\"
+#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+bool leap( int year );
+int DayofWeek( int year );
+int PrintMonth( int dow, int dim );
+ 
+int _tmain(int argc, _TCHAR* argv[])
+{
+    int i;
+    int dow;  // Day of Week
+    int year;
+ 
+    int days[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+ 
+    cout << \"Enter calendar year: \";
+    cin >> year;
+ 
+    if( year <<; 1980 ) cout <<; \"This program only works for years 1980 and later\" &lt;&lt; endl;
+ 
+    // Test whether this is a leap year
+ 
+    if( leap( year ) == true ) days[ 2 ] = 29;  // Leap year\'s February has 29 days
+ 
+    dow = DayofWeek( year );
+ 
+    for( i = 1; i &lt;= 12; i++ ) {  // Print 12 months
+        dow = PrintMonth( dow, days[ i ] ) + 1; // This function returns what day of week the month ended at
+        cout &lt;&lt; endl;
+    }
+ 
+    cin &gt;&gt; i;
+ 
+    return 0;
+}
+ 
+bool leap( int year ) {
+ 
+// Test whether this is a leap year
+ 
+    if( year % 4 == 0 ) {  // year is divisible by 4
+        if( year % 100 == 0) {
+            cout &lt;&lt; year &lt;&lt; \" is a century year\" &lt;&lt; endl;
+            return false;
+        }
+        return true;
+    }
+    else return false;
+}
+ 
+int DayofWeek( int year ) {
+    int dow = 3;
+    for( int i = 1980; i &lt; year; i++ ) {
+        dow++;  // Each year, the year starts one day later
+        if( leap(i) ) dow ++;  // Add another day for leap years
+        if( dow &gt; 7 ) dow = 1;  // Reset Day of Week to Sunday after reaching Saturday
+    }
+    return dow;
+}
+ 
+int PrintMonth(int dow, int dim ) {
+     
+    bool j;
+    int k, m;
+ 
+    cout &lt;&lt; \"  S  M  T  W  T  F  S \\n\";
+ 
+    m = 1; // Start month from 1
+    j = true;
+        while( j ) {
+            for( k = 1; k &lt;= 7; k++ ) {  // 7 columns in each row, for seven days in a week
+                if( m &lt; dow ) cout &lt;&lt; \"   \";
+                else {
+                    if( m - dow + 1 &lt; 10 ) cout &lt;&lt; \" \";
+                    cout &lt;&lt; \" \" &lt;&lt; m - dow + 1;
+                }
+                m++;
+                if( m - dow + 1 &gt; dim ) {
+                    j = false;
+                    break;
+                }
+            }
+            cout &lt;&lt; endl;
+        }
+        return k;
+}
