@@ -1,2 +1,70 @@
 main
 FLTK/Graphics - Ryan (basic frontend WIP)
+
+
+
+note: y'all are more than welcome to change any part of this outline
+
+1.  Team information (team name, members' names, who did what, did each member
+do a fair share of the work)
+2.  Statement of the problem, significance, etc.
+3.  Restrictions and limitations
+4.  Explanation of your approach (analysis to choose a strategy for 
+programming the project, how you coded it, etc.)
+5.  Sample run (screen shots)
+6.  Results and analysis
+7.  Conclusions - What did you show?  What did you learn? 
+8.  Future research (how your program could be improved or extended)
+9.  Instructions on how to run your program
+10. Listing of the COMMENTED program
+11. Bibliography - references used, if any
+
+Calendar Project
+Computer Science 121-504
+Ryan Hults, Ricardo Diaz and Haley Demos
+
+
+I.  TEAM INFORMATION
+	A. Names and Contribution
+		1. Ryan Hults, Ricardo Diaz and Haley Demos worked together as team _____ to complete a working calendar modeled after the functionality of outlook for the assigned final project. 
+			a. Ryan Hults - FLTK and general code cleanup 
+			b. Ricardo Diaz - Zeller's congruence and file managing
+			c. Haley Demos - Button related work and the report
+	B. Equality of Work
+		1. Team ____ came to the general concensus that we all did a fair share of the work on this project
+
+II.	THE PROJECT OVERVIEW
+	A. Problem
+		1. The project assigned is to write a C++/FLTK GUI monthly callendar page program that has the look and basic functionality of Outlook or a similar program. This program will begin with a text description of what it does as well as asking for a month, year and appointment name and display the appointment on a visual calendar. The calendar should also be interactive allowing the user to add/delete additional appointments in the same fashion. Since this is a team of three, "previous month" and "next month" buttons are a required function. 
+	B. Significance
+		1. This project is important for many reasons. Throughout the semester we have learned, some from scratch, how to program. This class isn't just about memorizing words like a language but rather implementing code, recieving results and working to fix problems both with the code and with effiency. By having a final project that incorporates everything that we have learned in the semester it measures our ability to apply the knowledge and allows us to challenge our knowlegde base and expand upon it. 
+		2. The importance of decomposition also presented itself in the course of this project. In order to sucessfully complete the project tasks had to be broken into many different parts which were divided among the group. These were then brought back together to create the final product. If tackled in one big attempt it would be messy, inefficieny and ugly.
+		3. This project is also significant because it is a realistic request. Programs asked for in a job setting will not take a short amount of time. They will often require lots of coding and time. Most projects also wont be achievable by yourself on the required timeline so the teams assigned are a wonderful representation of a real world example. Comments and communication are also key to being a successful and useful programming because even if you are the smartest person in the world if you can't communicate your ideas nothing can be achieved. 
+	*did we use abstraction?
+III.	RESTRICTIONS AND LIMITATIONS** are there any?
+IV.	EXPLANATION
+V.	SAMPLE RUN
+VI.	RESULTS AND ANALYSIS
+VII.	CONCLUSION
+VIII.	FUTURE 
+	A. Improvements
+		1. The program is useful with keeping track of apointments but half of remembering an appointment is the time and length of the appointment. This is the most necessary next step if the program was to be improved upon. The look of the program could also be streamlined to fit the operating system better with color scheme / look of the windows. This could also be the addition of differentiating appointments with a highlighted color. 
+	B. Additional Features/Extensions
+		1. Many additional features could potentially be added to this calendar program. Below are some listed examples.
+			a. Full moon days (this could also include a pictorial representation)
+			b. Search bar for appointments
+			c. Adding appointments by email
+IX.	RUN-TIME INSTRUCTIONS
+
+	. A window will come up on the screen explaning that this program is a calendar that keeps track of appointments and puts them on a graphic picture of a monthly calendar. It will then ask for user input to set up an appointment. 
+	. When prompted for the date of the appointment enter the date as specifyed in the prompt. 
+	. Next enter the title of the appointment (this should be prompted for aswell). This will then be applied to a graphic calendar in month format. 
+	. To enter another appointment, simply click on the _____ and the date and title prompt will appear again. Repeat step ___ and ___ until desired number of appointments are entered in the calendar.
+	. To navigate through the months, click on the arrow buttons at the top left of the screen. The calendar will continue to the next consecutive/previous month.
+	. In order to exit the program you can ____________.
+	
+X.	COMMENTS
+XI.	BIBLIOGRAPHY (MLA7)
+	A. "Www.cplusplus.com." Www.cplusplus.com. N.p., n.d. Web. 20 Apr. 2013. <http://www.cplusplus.com/>.
+
+	
